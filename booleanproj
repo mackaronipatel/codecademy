@@ -1,0 +1,48 @@
+#ground shipping cost
+def ground_shipping(weight):
+  if (weight > 10):
+    cost = (weight*4.75) + 20
+    return cost
+  elif (weight > 6):
+    cost = (weight*4) + 20
+    return cost
+  elif (weight > 2 ):
+    cost = (weight*3) + 20
+    return cost
+  else:
+    return (weight*1.5) + 20
+ 
+cost = ground_shipping(8.4)
+print("The cost of ground shipping this package is " + str(cost) + " dollars.")
+
+#premium ground shipping flat rate
+premium_ground_shipping = 125
+
+#drone shipping cost
+def drone_shipping(weight):
+  if (weight > 10):
+    cost = weight * 14.25
+    return cost
+  elif (weight > 6):
+    cost = weight * 12
+    return cost
+  elif (weight > 2):
+    cost = weight*9
+    return cost
+  else:
+    return weight * 4.50
+
+cost_drone = drone_shipping(1.5)
+print("The cost of drone shipping this package is " + str(cost_drone) + " dollars.")
+
+#tells the user what shipping method is cheapest and how much shipping will cost
+def shipping_decision(weight):
+  if (ground_shipping(weight) < drone_shipping(weight)) and (ground_shipping(weight) < premium_ground_shipping):
+    return "Ground shipping is the cheapest method. It will cost " + str(ground_shipping(weight)) + " to ship this package."
+  if (drone_shipping(weight) < ground_shipping(weight)) and (drone_shipping(weight) < premium_ground_shipping):
+    return "Drone shipping is the cheapest method. It will cost " + str(drone_shipping(weight)) + " to ship this package."
+  else:
+    return "Premium ground shipping is the cheapest method. The total cost will be " + str(premium_ground_shipping) + " ."
+
+decision_tree = shipping_decision(4)
+print(decision_tree)
