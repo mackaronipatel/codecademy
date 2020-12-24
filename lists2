@@ -5,7 +5,7 @@ num_pizzas = len(toppings)
 print("We sell " + str(num_pizzas) + " different kinds of pizza!")
 
 pizzas = list(zip(prices,toppings))
-#print(pizzas)
+print(pizzas)
 
 pizzas.sort()
 print(pizzas)
